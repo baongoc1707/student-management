@@ -1,0 +1,31 @@
+{
+  "name": "student-management",
+  "version": "1.0.0",
+  "description": "Using JavaScript and Bootstrap",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "ts:watch": "tsc --watch",
+    "css:watch": "tailwindcss -i ./src/styles/style.css -o ./build/style.css --watch",
+    "dev": "concurrently \"npm run ts:watch\" \"npm run css:watch\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/baongoc1707/student-management.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/baongoc1707/student-management/issues"
+  },
+  "homepage": "https://github.com/baongoc1707/student-management#readme",
+  "devDependencies": {
+    "concurrently": "^9.2.1",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "@tailwindcss/cli": "^4.1.17",
+    "tailwindcss": "^4.1.17"
+  }
+}
