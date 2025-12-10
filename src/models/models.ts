@@ -1,4 +1,4 @@
-export class Student {
+export class SinhVien {
   maSV: string;
   tenSV: string;
   diemToan: number;
