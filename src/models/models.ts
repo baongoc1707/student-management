@@ -1,20 +1,18 @@
-export class SinhVien {
+interface SV {
   maSV: string;
   tenSV: string;
   diemToan: number;
   diemVan: number;
+  xepLoai(): string;
+}
 
+export class SinhVien implements SV {
   constructor(
-    maSV: string,
-    tenSV: string,
-    diemToan: number = 0.0,
-    diemVan: number = 0.0
-  ) {
-    this.maSV = maSV;
-    this.tenSV = tenSV;
-    this.diemToan = diemToan;
-    this.diemVan = diemVan;
-  }
+    public maSV: string,
+    public tenSV: string,
+    public diemToan: number = 0.0,
+    public diemVan: number = 0.0
+  ) {}
 
   private tinhDiemTB(): number {
     return (this.diemToan + this.diemVan) / 2;
