@@ -1,26 +1,16 @@
-import { SinhVien, SVInput } from "../models/models.js";
-import { generateMaSV } from "../utils/generateMaSV.js";
+import { SinhVien, SVInput } from "../models/student.models.js";
+import { STORAGE_KEYS } from "../constants/storageKeys.constants.js";
+import { localStorageData } from "./localStorageData.services.js";
 
 export class DanhSachSV {
   public danhSach: SinhVien[];
 
   constructor() {
-    this.danhSach = [];
+    const prevData = localStorageData.getSVList(STORAGE_KEYS.DANH_SACH_SV);
+    this.danhSach = prevData || [];
   }
 
   //Methods
-  //Local Storage Handler
-  private luuLocalStorage(): void {
-    const data = this.danhSach.map((sv) => ({
-      maSV: sv.maSV,
-      tenSV: sv.tenSV,
-      diemToan: sv.diemToan,
-      diemVan: sv.diemVan,
-    }));
-
-    localStorage.setItem("danhSachSinhVien", JSON.stringify(data));
-  }
-
   // Thêm SV / Search + Add Student
   private timKiemSV(maSV: string): boolean {
     return this.danhSach.some((sv) => sv.maSV === maSV);
@@ -34,7 +24,7 @@ export class DanhSachSV {
     }
 
     this.danhSach = [...this.danhSach, sv];
-    this.luuLocalStorage();
+    localStorageData.setSVList(STORAGE_KEYS.DANH_SACH_SV, this.danhSach);
   }
 
   // Cập nhật SV / Update Student
@@ -58,13 +48,13 @@ export class DanhSachSV {
       sinhVienMoi,
       ...this.danhSach.slice(foundIndex + 1),
     ];
-    this.luuLocalStorage();
+    localStorageData.setSVList(STORAGE_KEYS.DANH_SACH_SV, this.danhSach);
   }
 
   // Xóa SV / Delete Student
   public xoaSV(maSV: string) {
     this.danhSach = this.danhSach.filter((sv) => sv.maSV !== maSV);
-    this.luuLocalStorage();
+    localStorageData.setSVList(STORAGE_KEYS.DANH_SACH_SV, this.danhSach);
   }
 
   // Hiển thị danh sách SV

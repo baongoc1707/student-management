@@ -1,5 +1,3 @@
-import { generateMaSV } from "../utils/generateMaSV.js";
-
 export interface SVInput {
   tenSV: string;
   diemToan: number;

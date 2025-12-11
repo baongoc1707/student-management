@@ -1,4 +1,4 @@
-import { DanhSachSV } from "./../services/data-service";
+import { DanhSachSV } from "../services/data.services";
 
 export const renderDanhSach = (ds: DanhSachSV) => {
   const studentBox = document.querySelector(".student-table");
