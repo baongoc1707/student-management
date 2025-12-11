@@ -44,7 +44,7 @@
                   <label class="w-24 font-medium text-gray-600">Mã SV:</label>
                   <input
                     type="text"
-                    placeholder="SV01"
+                    id="studentId"
                     readonly
                     class="grow bg-gray-100 p-1 border border-gray-400 focus:outline-none text-gray-500 rounded-sm"
                     required
@@ -58,8 +58,10 @@
                   >
                   <input
                     type="text"
+                    placeholder="Nguyễn Văn A"
                     id="name"
                     class="grow p-1 border border-gray-400 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 rounded-sm"
+                    required
                   />
                 </div>
 
@@ -75,6 +77,7 @@
                     max="10"
                     step="0.1"
                     class="grow p-1 border border-gray-400 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 rounded-sm"
+                    required
                   />
                 </div>
 
@@ -90,6 +93,7 @@
                     max="10"
                     step="0.1"
                     class="grow p-1 border border-gray-400 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 rounded-sm"
+                    required
                   />
                 </div>
 
@@ -105,23 +109,29 @@
                   />
                 </div>
               </div>
-            </form>
 
-            <!-- Hàng nút điều khiển -->
-            <div class="flex justify-between mb-4">
-              <button class="win-button cursor-pointer" id="btnThem">
-                Thêm
-              </button>
+              <!-- Hàng nút điều khiển -->
+              <div class="flex justify-between mt-4">
+                <input
+                  type="submit"
+                  class="win-button cursor-pointer"
+                  value="Thêm"
+                />
 
-              <div class="flex space-x-2">
-                <button class="win-button cursor-pointer" id="btnSua">
-                  Sửa
-                </button>
-                <button class="win-button cursor-pointer" id="btnXoa">
-                  Xóa
-                </button>
+                <div class="flex space-x-2">
+                  <input
+                    type="submit"
+                    class="win-button cursor-pointer"
+                    value="Sửa"
+                  />
+                  <input
+                    type="submit"
+                    class="win-button cursor-pointer"
+                    value="Xóa"
+                  />
+                </div>
               </div>
-            </div>
+            </form>
 
             <!-- Khu vực hiển thị danh sách (Grey box) -->
             <div

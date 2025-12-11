@@ -21,7 +21,7 @@ export class SinhVien implements SV {
     public diemVan: number = 0.0
   ) {
     // Fix lỗi tự động cập nhật maSV trong capNhatSV()
-    this.maSV = maSV ?? generateMaSV();
+    this.maSV = maSV;
   }
 
   private tinhDiemTB(): number {

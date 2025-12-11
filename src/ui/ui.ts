@@ -1,25 +1,21 @@
 import { DanhSachSV } from "./../services/data-service";
 
-const danhSach = new DanhSachSV();
-
-export const renderDanhSach = () => {
+export const renderDanhSach = (ds: DanhSachSV) => {
   const studentBox = document.querySelector(".student-table");
 
   if (!studentBox) return;
 
-  studentBox.innerHTML = danhSach.danhSach
+  const danhSach = ds.hienThi();
+
+  studentBox.innerHTML = danhSach
     .map(
       (sv) => `
-    <tr data-id="${sv.maSV}">
+      <tr data-id="${sv.maSV}" class="border border-solid border-gray-400">
         <td>${sv.maSV}</td>
         <td>${sv.tenSV}</td>
         <td>${sv.diemToan}</td>
         <td>${sv.diemVan}</td>
         <td>${sv.xepLoai()}</td>
-        <td>
-          <button class="btn-delete">Xóa</button>
-          <button class="btn-edit">Sửa</button>
-        </td>
       </tr>
    `
     )

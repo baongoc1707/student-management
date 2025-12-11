@@ -1,21 +1,47 @@
 import { SinhVien } from "./models/models.js";
 import { DanhSachSV } from "./services/data-service.js";
+import { renderDanhSach } from "./ui/ui.js";
+import { generateMaSV } from "./utils/generateMaSV.js";
 
-/*
-Used for expanding source code acts as the intermediary in the future
-Base on frameworks structure
-*/
 const danhSach = new DanhSachSV();
-const formData = document.querySelector("form");
-const studentTable = document.querySelector("table.student-table");
 
-formData?.addEventListener("submit", (e) => {
-  e.preventDefault();
-});
+const init = () => {
+  const maSVInput = document.getElementById("studentId") as HTMLInputElement;
+  const tenInput = document.getElementById("name") as HTMLInputElement;
+  const toanInput = document.getElementById("math") as HTMLInputElement;
+  const vanInput = document.getElementById("literature") as HTMLInputElement;
+  const form = document.querySelector("form");
 
-/* danhSach.themSV(new SinhVien("SV01", "Nguyen Van A", 10, 10));
-danhSach.themSV(new SinhVien("SV02", "Nguyen Van B", 8, 10));
-console.table(danhSach.hienThi());
+  const formDataReset = [tenInput, toanInput, vanInput];
 
-danhSach.xoaSV("SV01");
-console.table(danhSach.hienThi()); */
+  const prepareNextMaSV = () => {
+    maSVInput.value = generateMaSV();
+  };
+
+  const handleSubmit = (e: Event) => {
+    e.preventDefault();
+
+    const { value: maSV } = maSVInput;
+    const { value: tenSV } = tenInput;
+    const diemToan = Number.parseFloat(toanInput.value);
+    const diemVan = Number.parseFloat(vanInput.value);
+
+    try {
+      const sv = new SinhVien(maSV, tenSV, diemToan, diemVan);
+      danhSach.themSV(sv);
+      renderDanhSach(danhSach);
+
+      formDataReset.forEach((input) => (input.value = ""));
+      prepareNextMaSV();
+    } catch (err: any) {
+      alert(`Lỗi: ${err.message}`);
+    }
+  };
+
+  form?.addEventListener("submit", handleSubmit);
+
+  prepareNextMaSV();
+  renderDanhSach(danhSach);
+};
+
+document.addEventListener("DOMContentLoaded", init);

@@ -1,5 +1,6 @@
 import { SinhVien } from "../models/models.js";
-import { SVInput } from "../models/models.js";
+import { SVInput } from "../constants/interfaceInput.js";
+import { generateMaSV } from "../utils/generateMaSV.js";
 
 export class DanhSachSV {
   public danhSach: SinhVien[];
@@ -32,6 +33,7 @@ export class DanhSachSV {
     if (tonTai) {
       throw new Error("Student already exists. Add failed!");
     }
+
     this.danhSach = [...this.danhSach, sv];
     this.luuLocalStorage();
   }

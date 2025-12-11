@@ -1,4 +1,4 @@
-export function createCounter() {
+function createCounter() {
   let counter = 1;
 
   return function () {
