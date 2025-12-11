@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "ts:watch": "tsc --watch",
     "css:watch": "tailwindcss -i ./src/styles/style.css -o ./build/style.css --watch",
-    "dev": "concurrently \"npm run ts:watch\" \"npm run css:watch\""
+    "serve": "live-server --port=3000 --open=index.html",
+    "dev": "concurrently \"npm run ts:watch\" \"npm run css:watch\" \"npm run serve\""
   },
   "repository": {
     "type": "git",
@@ -22,6 +23,7 @@
   "homepage": "https://github.com/baongoc1707/student-management#readme",
   "devDependencies": {
     "concurrently": "^9.2.1",
+    "live-server": "^1.2.2",
     "typescript": "^5.9.3"
   },
   "dependencies": {

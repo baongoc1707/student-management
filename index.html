@@ -7,6 +7,128 @@
     <link href="./build/style.css" rel="stylesheet" />
   </head>
   <body>
+    <div
+      id="container"
+      class="bg-gray-100 flex justify-center items-center min-h-screen p-4"
+    >
+      <!-- Khung cửa sổ chính -->
+      <div class="window-style rounded-md overflow-hidden">
+        <div
+          class="bg-gray-700 text-white text-4xl font-semibold px-4 py-3 flex items-center"
+        >
+          Quản lý sinh viên
+        </div>
+
+        <!-- Nội dung chính -->
+        <div class="p-4 bg-white">
+          <div class="text-center mb-6">
+            <h2 class="text-4xl font-bold text-gray-800 uppercase">
+              Danh sách sinh viên
+            </h2>
+          </div>
+
+          <!-- Khu vực chứa các nút thao tác và danh sách -->
+          <div class="border border-gray-300 p-4">
+            <!-- Form nhập liệu cho Sinh viên -->
+            <div class="mb-6 p-4 border border-gray-300 bg-gray-50 rounded-sm">
+              <h3
+                class="text-2xl font-semibold mb-3 border-b border-gray-300 pb-1 text-gray-700"
+              >
+                Thông tin Sinh viên
+              </h3>
+              <div
+                class="grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-2 text-sm"
+              >
+                <!-- Mã SV -->
+                <div class="flex items-center space-x-2">
+                  <label class="w-24 font-medium text-gray-600">Mã SV:</label>
+                  <input
+                    type="text"
+                    value="SV01"
+                    readonly
+                    class="grow bg-gray-100 p-1 border border-gray-400 focus:outline-none text-gray-500 rounded-sm"
+                  />
+                </div>
+
+                <!-- Họ và tên -->
+                <div class="flex items-center space-x-2">
+                  <label for="name" class="w-24 font-medium text-gray-600"
+                    >Họ và tên:</label
+                  >
+                  <input
+                    type="text"
+                    id="name"
+                    class="grow p-1 border border-gray-400 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 rounded-sm"
+                  />
+                </div>
+
+                <!-- Điểm Toán -->
+                <div class="flex items-center space-x-2">
+                  <label for="math" class="w-24 font-medium text-gray-600"
+                    >Điểm Toán:</label
+                  >
+                  <input
+                    type="number"
+                    id="math"
+                    min="0"
+                    max="10"
+                    step="0.1"
+                    class="grow p-1 border border-gray-400 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 rounded-sm"
+                  />
+                </div>
+
+                <!-- Điểm Văn -->
+                <div class="flex items-center space-x-2">
+                  <label for="literature" class="w-24 font-medium text-gray-600"
+                    >Điểm Văn:</label
+                  >
+                  <input
+                    type="number"
+                    id="literature"
+                    min="0"
+                    max="10"
+                    step="0.1"
+                    class="grow p-1 border border-gray-400 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 rounded-sm"
+                  />
+                </div>
+
+                <!-- Xếp loại -->
+                <div class="flex items-center space-x-2">
+                  <label class="w-24 font-medium text-gray-600"
+                    >Xếp loại:</label
+                  >
+                  <input
+                    type="text"
+                    readonly
+                    class="grow bg-gray-200 p-1 border border-gray-400 focus:outline-none text-gray-500 rounded-sm"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <!-- Hàng nút điều khiển -->
+            <div class="flex justify-between mb-4">
+              <button class="win-button">Thêm</button>
+
+              <div class="flex space-x-2">
+                <button class="win-button">Sửa</button>
+                <button class="win-button">Xóa</button>
+              </div>
+            </div>
+
+            <!-- Khu vực hiển thị danh sách (Grey box) -->
+            <div
+              class="bg-gray-300 w-full h-80 border border-gray-500 flex items-center justify-center"
+            >
+              <span class="text-gray-600 italic"
+                >Data Grid/List Placeholder</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <script type="module" src="./build/main.js"></script>
   </body>
 </html>
