@@ -24,11 +24,17 @@ Stores project assets such as images, fonts, icons, etc.
 Contains source code.  
 `main.ts` serves as the intermediary linking sources in the `src` folder with `index.html`.
 
-### ./utils
+### ./models
+
+- Automatically generates student id in this class
+- Creates separated interfaces for fixed/auto-generate fields and input fields
+- Check the case whether maSV (student id) exists -> Generate id if not
+
+#### ./utils
 
 Contains utilities or helpers code
 
-#### ../generateMaSV
+##### ../generateMaSV
 
 - Some string methods have not been match with the version of EcmaScript (e.g. ES5, ES6, etc.) -> Checks the "target" in tsconfig.json to prevent the tackle
 - Initialize a common generator used for overall system -> Prevent the meet to duplicate errors once loading page.

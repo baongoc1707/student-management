@@ -1,18 +1,28 @@
-interface SV {
-  maSV: string;
+import { generateMaSV } from "../utils/generateMaSV.js";
+
+export interface SVInput {
   tenSV: string;
   diemToan: number;
   diemVan: number;
+}
+
+export interface SV extends SVInput {
+  maSV: string;
   xepLoai(): string;
 }
 
 export class SinhVien implements SV {
+  public readonly maSV: string; //Không cho sửa sau khi tạo
+
   constructor(
-    public maSV: string,
+    maSV: string,
     public tenSV: string,
     public diemToan: number = 0.0,
     public diemVan: number = 0.0
-  ) {}
+  ) {
+    // Fix lỗi tự động cập nhật maSV trong capNhatSV()
+    this.maSV = maSV ?? generateMaSV();
+  }
 
   private tinhDiemTB(): number {
     return (this.diemToan + this.diemVan) / 2;
