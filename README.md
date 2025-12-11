@@ -1,7 +1,7 @@
 # Student Management
 
 A project built with **TypeScript** and **TailwindCSS**.  
-Project structure follows a framework-based convention.
+Project structure follows a framework-based convention.  
 Goal-standardization: DRY (Don't Repeat Yourself).
 
 ## Tag-line Standardization
