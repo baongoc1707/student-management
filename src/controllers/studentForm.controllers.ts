@@ -1,7 +1,10 @@
 import { SinhVien } from "../models/student.models.js";
 import { DanhSachSV } from "../services/data.services.js";
 import { renderDanhSach } from "../ui/studentList.ui.js";
-import { generateMaSV } from "../utils/generateMaSV.utils.js";
+import {
+  increaseCounter,
+  getNextCounter,
+} from "../utils/generateMaSV.utils.js";
 
 export class StudentFormController {
   private maSVInput!: HTMLInputElement;
@@ -30,7 +33,7 @@ export class StudentFormController {
   }
 
   private prepareNextMaSV(): void {
-    this.maSVInput.value = generateMaSV();
+    this.maSVInput.value = getNextCounter();
   }
 
   private initializeSubmitHandler(): void {
@@ -51,6 +54,7 @@ export class StudentFormController {
       this.danhSach.themSV(sv);
 
       this.formDataReset.forEach((input) => (input.value = ""));
+      increaseCounter();
       this.prepareNextMaSV();
       renderDanhSach(this.danhSach);
     } catch (err: any) {

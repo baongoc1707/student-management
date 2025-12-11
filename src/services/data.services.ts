@@ -7,7 +7,12 @@ export class DanhSachSV {
 
   constructor() {
     const prevData = localStorageData.getSVList(STORAGE_KEYS.DANH_SACH_SV);
-    this.danhSach = prevData || [];
+
+    if (prevData && prevData.length > 0) {
+      this.danhSach = prevData.map((obj) => SinhVien.fromObject(obj));
+    } else {
+      this.danhSach = [];
+    }
   }
 
   //Methods

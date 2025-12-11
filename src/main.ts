@@ -5,7 +5,7 @@ import { StudentFormController } from "./controllers/studentForm.controllers.js"
 const danhSach = new DanhSachSV();
 
 const init = () => {
-  new StudentFormController(danhSach);
+  const formController = new StudentFormController(danhSach);
   renderDanhSach(danhSach);
 };
 
