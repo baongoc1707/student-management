@@ -30,7 +30,7 @@
           <!-- Khu vực chứa các nút thao tác và danh sách -->
           <div class="border border-gray-300 p-4">
             <!-- Form nhập liệu cho Sinh viên -->
-            <div class="mb-6 p-4 border border-gray-300 bg-gray-50 rounded-sm">
+            <form class="mb-6 p-4 border border-gray-300 bg-gray-50 rounded-sm">
               <h3
                 class="text-2xl font-semibold mb-3 border-b border-gray-300 pb-1 text-gray-700"
               >
@@ -104,7 +104,7 @@
                   />
                 </div>
               </div>
-            </div>
+            </form>
 
             <!-- Hàng nút điều khiển -->
             <div class="flex justify-between mb-4">
@@ -118,11 +118,13 @@
 
             <!-- Khu vực hiển thị danh sách (Grey box) -->
             <div
-              class="bg-gray-300 w-full h-80 border border-gray-500 flex items-center justify-center"
+              id="student-container"
+              class="bg-gray-300 w-full h-80 border border-gray-500 flex items-start justify-center"
             >
-              <span class="text-gray-600 italic"
-                >Data Grid/List Placeholder</span
-              >
+              <table
+                border="1"
+                class="table bg-white w-full student-table"
+              ></table>
             </div>
           </div>
         </div>
