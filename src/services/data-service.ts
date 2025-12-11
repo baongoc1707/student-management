@@ -1,5 +1,4 @@
-import { SinhVien } from "../models/models.js";
-import { SVInput } from "../constants/interfaceInput.js";
+import { SinhVien, SVInput } from "../models/models.js";
 import { generateMaSV } from "../utils/generateMaSV.js";
 
 export class DanhSachSV {
