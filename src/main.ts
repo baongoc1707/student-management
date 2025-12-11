@@ -1,0 +1,4 @@
+/*
+Used for expanding source code acts as the intermediary in the future
+Base on frameworks structure
+*/
